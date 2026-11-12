@@ -501,8 +501,6 @@ nav a:hover {
     border-radius: 50px;
     text-decoration: none;
     font-weight: bold;
-    font-size: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     z-index: 9999;
     transition: 0.3s;
 }
