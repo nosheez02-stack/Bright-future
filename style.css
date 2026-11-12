@@ -1,4 +1,8 @@
 
+/* =========================
+   1. GLOBAL SETTINGS
+========================= */
+
 * {
     margin: 0;
     padding: 0;
@@ -7,24 +11,39 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 20px;
+    scroll-padding-top: 85px;
 }
 
 body {
     font-family: Arial, sans-serif;
+    color: #1e293b;
+    background: #ffffff;
+    line-height: 1.6;
 }
 
+:root {
+    --primary: #172554;
+    --secondary: #2563eb;
+    --light: #eff6ff;
+    --white: #ffffff;
+    --text: #475569;
+}
+
+/* =========================
+   2. HEADER
+========================= */
 
 header {
     width: 100%;
-    padding: 20px 50px;
-    background-color: #172554;
+    padding: 18px 7%;
+    background: var(--primary);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position:relative;
+    position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.12);
 }
 
 .logo {
@@ -35,13 +54,15 @@ header {
 
 nav {
     display: flex;
-    gap: 25px;
+    gap: 30px;
 }
 
 nav a {
     color: white;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 15px;
+    font-weight: 600;
+    transition: 0.3s;
 }
 
 nav a:hover {
@@ -52,100 +73,129 @@ nav a:hover {
     display: none;
 }
 
+/* =========================
+   3. HERO SECTION
+========================= */
 
 .hero {
-    min-height: 500px;
-    background-color: #eff6ff;
+    min-height: 570px;
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #eff6ff, #dbeafe, #bfdbfe);
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 40px 20px;
+    position: relative;
+    overflow: hidden;
 }
 
 .hero-content {
-    max-width: 700px;
+    max-width: 850px;
+    position: relative;
+    z-index: 1;
 }
 
 .hero h1 {
-    font-size: 42px;
-    color: #172554;
-    margin-bottom: 20px;
+    font-size: clamp(36px, 5vw, 58px);
+    line-height: 1.2;
+    color: var(--primary);
+    margin-bottom: 25px;
+    font-weight: 800;
 }
 
 .hero p {
-    font-size: 18px;
-    line-height: 1.6;
-    color: #555;
-    margin-bottom: 30px;
+    font-size: 19px;
+    color: var(--text);
+    max-width: 650px;
+    margin: 0 auto 35px;
 }
 
 .btn {
     display: inline-block;
-    background-color: #2563eb;
+    background: var(--secondary);
     color: white;
-    padding: 14px 28px;
+    padding: 15px 32px;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s;
+    box-shadow: 0 6px 18px rgba(37,99,235,0.2);
 }
 
+.btn:hover {
+    background: var(--primary);
+    transform: translateY(-4px);
+}
+
+/* =========================
+   4. ABOUT SECTION
+========================= */
 
 .about {
-    padding: 80px 20px;
-    background-color: white;
+    padding: 90px 20px;
     display: flex;
     justify-content: center;
     text-align: center;
+    background: white;
 }
 
 .about-content {
-    max-width: 750px;
+    max-width: 800px;
 }
 
 .about h2,
 .courses h2,
 .why-us h2,
 .contact h2 {
-    font-size: 32px;
-    color: #172554;
-    margin-bottom: 25px;
+    font-size: 36px;
+    color: var(--primary);
+    margin-bottom: 20px;
 }
 
 .about p {
     font-size: 17px;
-    line-height: 1.8;
-    color: #555;
-    margin-bottom: 15px;
+    line-height: 1.9;
+    color: var(--text);
+    margin-bottom: 18px;
 }
 
 .about-btn {
     display: inline-block;
     margin-top: 15px;
-    padding: 12px 25px;
-    background-color: #172554;
+    padding: 13px 28px;
+    background: var(--primary);
     color: white;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 8px;
+    transition: 0.3s;
 }
 
+.about-btn:hover {
+    background: var(--secondary);
+    transform: translateY(-3px);
+}
+
+/* =========================
+   5. COURSES SECTION
+========================= */
 
 .courses {
-    padding: 80px 30px;
-    background-color: #eff6ff;
+    padding: 90px 25px;
+    background: var(--light);
     text-align: center;
 }
 
 .course-description,
 .why-description,
 .contact-description {
-    font-size: 16px;
-    color: #555;
-    margin-bottom: 40px;
+    font-size: 17px;
+    color: var(--text);
+    margin-bottom: 45px;
 }
 
 .course-container,
 .why-container {
-    max-width: 1100px;
+    max-width: 1150px;
     margin: auto;
     display: flex;
     justify-content: center;
@@ -154,60 +204,89 @@ nav a:hover {
 }
 
 .course-card {
-    width: 300px;
-    padding: 30px 20px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 310px;
+    padding: 38px 25px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(23,37,84,0.08);
+    border: 1px solid #e2e8f0;
+    transition: 0.3s;
+}
+
+.course-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(23,37,84,0.15);
 }
 
 .course-card h3,
 .why-card h3 {
-    color: #172554;
+    color: var(--primary);
     font-size: 22px;
     margin-bottom: 15px;
 }
 
 .course-card p,
 .why-card p {
-    color: #555;
-    line-height: 1.6;
-    margin-bottom: 20px;
+    color: var(--text);
+    line-height: 1.7;
+    margin-bottom: 22px;
 }
 
 .course-card a {
     display: inline-block;
-    padding: 10px 20px;
-    background-color: #2563eb;
+    padding: 11px 23px;
+    background: var(--secondary);
     color: white;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 7px;
+    transition: 0.3s;
 }
 
+.course-card a:hover {
+    background: var(--primary);
+}
+
+/* =========================
+   6. WHY CHOOSE US
+========================= */
 
 .why-us {
-    padding: 80px 30px;
+    padding: 90px 25px;
     text-align: center;
-    background-color: white;
+    background: white;
 }
 
 .why-card {
-    width: 300px;
-    padding: 30px 20px;
-    background-color: #eff6ff;
-    border-radius: 10px;
+    width: 310px;
+    padding: 35px 25px;
+    background: var(--light);
+    border-radius: 15px;
+    border: 1px solid #dbeafe;
+    transition: 0.3s;
 }
 
+.why-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 10px 25px rgba(23,37,84,0.1);
+}
+
+/* =========================
+   7. CONTACT SECTION
+========================= */
 
 .contact {
-    padding: 80px 20px;
-    background-color: #eff6ff;
+    padding: 90px 20px;
+    background: var(--light);
     text-align: center;
 }
 
 .contact-container {
-    max-width: 600px;
+    max-width: 650px;
     margin: auto;
+    padding: 35px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(23,37,84,0.08);
 }
 
 .contact-form {
@@ -219,67 +298,79 @@ nav a:hover {
 .contact-form input,
 .contact-form textarea {
     width: 100%;
-    padding: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    padding: 16px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
     font-size: 16px;
     font-family: Arial, sans-serif;
+    outline: none;
+    transition: 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--secondary);
+    box-shadow: 0 0 0 3px rgba(37,99,235,0.12);
 }
 
 .contact-form textarea {
-    min-height: 130px;
+    min-height: 140px;
     resize: vertical;
 }
 
 .contact-form button {
-    width: 70%;
-    margin-left: 15%;
-    padding: 15px;
-    background-color: #1646ae;
+    width: 100%;
+    padding: 16px;
+    background: var(--secondary);
     color: white;
     border: none;
     border-radius: 8px;
-    font-size: 16px;
+    font-size: 17px;
+    font-weight: bold;
     cursor: pointer;
+    transition: 0.3s;
 }
 
 .contact-form button:hover {
-    background-color: #1d337a;
+    background: var(--primary);
 }
 
+/* =========================
+   8. FOOTER
+========================= */
 
 .footer {
-    background-color: #172554;
+    background: #0f172a;
     color: white;
-    padding: 50px 30px 20px;
+    padding: 60px 30px 20px;
 }
 
 .footer-container {
-    max-width: 1100px;
+    max-width: 1150px;
     margin: auto;
     display: flex;
     justify-content: space-between;
-    gap: 40px;
+    gap: 45px;
     flex-wrap: wrap;
 }
 
 .footer-about {
-    max-width: 300px;
+    max-width: 320px;
 }
 
 .footer h2 {
-    font-size: 23px;
+    font-size: 24px;
     margin-bottom: 15px;
 }
 
 .footer h3 {
     font-size: 19px;
-    margin-bottom: 15px;
+    margin-bottom: 18px;
 }
 
 .footer p {
-    color: #dbeafe;
-    line-height: 1.7;
+    color: #cbd5e1;
+    line-height: 1.8;
     margin-bottom: 8px;
 }
 
@@ -289,27 +380,32 @@ nav a:hover {
 }
 
 .footer-links a {
-    color: #dbeafe;
+    color: #cbd5e1;
     text-decoration: none;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+    transition: 0.3s;
 }
 
 .footer-links a:hover {
     color: white;
+    padding-left: 5px;
 }
 
 .copyright {
     text-align: center;
-    border-top: 1px solid #475569;
-    margin-top: 40px;
-    padding-top: 20px;
+    border-top: 1px solid #334155;
+    margin-top: 45px;
+    padding-top: 22px;
 }
 
+/* =========================
+   9. RESPONSIVE DESIGN
+========================= */
 
 @media (max-width: 768px) {
 
     header {
-        padding: 20px;
+        padding: 17px 20px;
         flex-wrap: wrap;
     }
 
@@ -322,7 +418,7 @@ nav a:hover {
         background: none;
         border: none;
         color: white;
-        font-size: 25px;
+        font-size: 27px;
         cursor: pointer;
     }
 
@@ -331,7 +427,7 @@ nav a:hover {
         width: 100%;
         flex-direction: column;
         text-align: center;
-        gap: 20px;
+        gap: 18px;
         padding-top: 20px;
     }
 
@@ -339,18 +435,34 @@ nav a:hover {
         display: flex;
     }
 
+    .hero {
+        min-height: 480px;
+        padding: 65px 20px;
+    }
+
     .hero h1 {
-        font-size: 30px;
+        font-size: 36px;
     }
 
     .hero p {
         font-size: 16px;
     }
 
+    .about h2,
+    .courses h2,
+    .why-us h2,
+    .contact h2 {
+        font-size: 29px;
+    }
+
     .course-card,
     .why-card {
         width: 100%;
-        max-width: 350px;
+        max-width: 380px;
+    }
+
+    .contact-container {
+        padding: 22px;
     }
 
     .footer-container {
@@ -361,5 +473,20 @@ nav a:hover {
 
     .footer-about {
         max-width: 100%;
+    }
+}
+
+@media (max-width: 400px) {
+
+    .hero h1 {
+        font-size: 30px;
+    }
+
+    .logo {
+        font-size: 17px;
+    }
+
+    .btn {
+        padding: 13px 22px;
     }
 }
